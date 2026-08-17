@@ -62,3 +62,7 @@ desktop.ini
 *.zip
 *.rar
 *.7z
+
+#private key
+*.pem
+*.ppk

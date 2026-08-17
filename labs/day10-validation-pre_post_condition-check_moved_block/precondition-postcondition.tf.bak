@@ -1,0 +1,29 @@
+variable "instance_type" {}
+
+data "aws_ec2_instance_type" "example" {
+  instance_type = var.instance_type
+}
+
+output "ec2" {
+    value = data.aws_ec2_instance_type.example
+  
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-04fca11ec6cc2ddab"
+  instance_type = var.instance_type
+  subnet_id     = "subnet-0be8e2e22a0bac3b0"
+
+  lifecycle {
+    precondition {
+      condition     = data.aws_ec2_instance_type.example.auto_recovery_supported == true
+      error_message = "this instance type is not free tier"
+    }
+
+    postcondition {
+      condition     = self.public_ip != ""
+      error_message = "there is not public ip accociated with ec2 instance"
+    }
+  }
+
+}
