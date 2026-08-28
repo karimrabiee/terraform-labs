@@ -1,0 +1,6 @@
+splunk = "8088"
+https = "443"
+cidr_block = "172.31.0.0/16"
+api_port_form_DEV = "8080"
+api_port_from_PROD = "8443"
+cidr_block_all_traffic= "0.0.0.0/0"
