@@ -224,10 +224,6 @@ Resource Evaluation
 Postcondition
 ```
 
-These mechanisms were covered during the Day 10 learning session but are not required for the primary implementation of this project.
-
----
-
 ## Check Blocks
 
 Check Blocks were also covered as part of Day 10.
