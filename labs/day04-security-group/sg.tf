@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow HTTPS"
-  vpc_id      = "vpc-034ac5f4f327b643b"
+  vpc_id      = "vpc-034ac5f4f327b643b" #this not best practices to write vpc name explicit the best ( aws_vpc.vpc1.id )
 
   tags = {
     Name = "allow_tls"
