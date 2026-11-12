@@ -65,7 +65,39 @@ Desired State
 and generates an execution plan.
 
 ---
+## Terraform State Commands
 
+-List managed resources
+
+```hcl
+terraform state list
+```
+-Show resource details
+
+```hcl
+terraform state show aws_instance.web
+```
+-Rename or move resource address
+
+```hcl
+terraform state mv aws_instance.web aws_instance.app
+```
+-Remove resource from state only
+
+```hcl
+terraform state rm aws_instance.web
+```
+-Import existing AWS resource
+
+```hcl
+terraform import aws_instance.web i-123456
+```
+-Create a backup of current local state
+
+```hcl
+terraform state pull > backup.tfstate
+```
+---
 ## Desired State
 
 Defined in Terraform configuration.
