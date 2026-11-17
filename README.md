@@ -1,230 +1,147 @@
 # Terraform Labs
 
-A collection of hands-on Terraform labs completed while studying the **HashiCorp Certified: Terraform Associate (003/004)** course.
+A hands-on learning portfolio documenting my study of Terraform and Infrastructure as Code (IaC) while working toward the **HashiCorp Certified: Terraform Associate (003/004)** certification.
 
-This repository documents my practical journey in learning Infrastructure as Code (IaC) using Terraform. Each lab focuses on a single concept and includes the Terraform configuration, documentation, and personal notes created during the learning process.
+The repository contains focused, day-by-day labs, study notes, a small AWS project, and separate Terraform challenge exercises. It records what I have practiced and studied; it is a learning repository, not a claim of production readiness or a production infrastructure platform.
 
-The primary goal of this repository is to build a solid Terraform foundation before moving to production-grade infrastructure projects.
+## Learning progress
 
----
+The repository currently contains materials for **Days 01–15**. The status below describes what is present in Git and, where applicable, what an individual lab README reports. A folder or study note alone does not mean that every example has been deployed, independently validated, or remains active in AWS.
 
-## Learning Objectives
+| Day | Topic | Repository evidence |
+| --- | --- | --- |
+| 01 | Installation, Terraform architecture, providers, and IaC | [Lab README](labs/day01-installation/README.md) marks the lab completed |
+| 02 | First EC2 instance, AWS provider, authentication, and resource lifecycle | [Lab README](labs/day02-first-ec2/README.md) marks the lab completed |
+| 03 | Terraform state, provider versioning, and GitHub provider | [Lab README](labs/day03-state/README.md) marks the lab completed |
+| 04 | Security groups, resource references, outputs, EC2, and Elastic IP | [Lab README](labs/day04-security-group/README.md) marks the lab completed |
+| 05 | Input variables, tfvars, and variable precedence | [Lab README](labs/day05-variables/README.md) marks the lab completed |
+| 06 | Data types, count, conditionals, built-in functions, and Terraform console | [Study notes](labs/day06-functions-count/notes.md) and example files |
+| 07 | Local values, data sources, dynamic AMI lookup, and a small AWS infrastructure project | [Lab README](labs/day07-local-values-data-sources/README.md) |
+| 08 | Debugging, formatting, validation, dynamic blocks, plans, splat expressions, and resource targeting | [Lab README](labs/day08-debugging-code-cleanup/README.md) |
+| 09 | Meta-arguments, lifecycle, dependencies, sets, objects, count, and for_each | [Lab README](labs/day09-meta-arguments-dependencies-for_each/README.md) |
+| 10 | Input validation, preconditions, postconditions, check blocks, and moved blocks | [Lab README](labs/day10-validation-pre_post_condition-check_moved_block/README.md) distinguishes the implemented validation example from other studied topics |
+| 11 | Provisioners, including local-exec, remote-exec, and destroy-time behavior | [Lab README](labs/day11-provisioners/README.md) |
+| 12 | Reusable modules, module inputs and outputs, providers, and module structure | [Lab README](labs/day12-modules/README.md) |
+| 13 | Workspaces, Git collaboration, backends, state locking, S3, and remote state | [Lab README](labs/day13-workspaces-git-remote-state/README.md) |
+| 14 | Import, removed blocks, multiple providers, sensitive and ephemeral values, and Vault | [Lab README](labs/day14-import-removed-block-sensitive-data-vault/README.md) |
+| 15 | HCP Terraform, organizations, workspaces, teams, policies, runs, and state migration | [Lab README](labs/day15-HCP-terraform/README.md) and study notes |
 
-- Understand Infrastructure as Code (IaC)
-- Learn the Terraform workflow
-- Deploy AWS resources using Terraform
-- Work with Providers and Resources
-- Understand Terraform State
-- Use Variables and Outputs
-- Create and manage Security Groups
-- Reference Resource Attributes
-- Work with Local Values and Data Sources
-- Use Count and Conditional Expressions
-- Build reusable Terraform Modules
-- Configure Remote State
-- Apply Terraform Best Practices
+### Additional work
 
----
+- [AWS mini project](projects/project-1/README.md): a VPC, subnet, security group, EC2 instances, AMI data source, variables, local values, and resource references.
+- [KPLabs Terraform challenges](kplabs-terraform-challenges/): four challenge directories with requirements and Terraform examples.
 
-## Repository Structure
+## Repository layout
 
 ```text
-terraform-labs/
-│
+.
 ├── .gitignore
 ├── .terraform.lock.hcl
 ├── LICENSE
 ├── README.md
-│
-└── labs/
-    │
-    ├── day01-installation/
-    │   ├── README.md
-    │   ├── NOTES.md
-    │   ├── versions.tf
-    │   └── providers.tf
-    │
-    ├── day02-first-ec2/
-    │   ├── README.md
-    │   ├── NOTES.md
-    │   ├── versions.tf
-    │   ├── providers.tf
-    │   ├── ec2.tf
-    │   └── outputs.tf
-    │
-    ├── day03-state/
-    │   ├── README.md
-    │   ├── NOTES.md
-    │   ├── versions.tf
-    │   ├── providers.tf
-    │   ├── ec2.tf
-    │   └── outputs.tf
-    │
-    ├── day04-security-group/
-    │   ├── README.md
-    │   ├── NOTES.md
-    │   ├── versions.tf
-    │   ├── providers.tf
-    │   ├── sg.tf
-    │   ├── variables.tf
-    │   └── outputs.tf
-    │
-    └── day05-variables/
-        ├── README.md
-        ├── NOTES.md
-        ├── versions.tf
-        ├── providers.tf
-        ├── variables.tf
-        ├── sg.tf
-        ├── terraform.tfvars
-        ├── dev.tfvars
-        ├── prod.tfvars
-        └── eip.tf.bak
+├── labs/
+│   ├── day01-installation/
+│   ├── day02-first-ec2/
+│   ├── day03-state/
+│   ├── day04-security-group/
+│   ├── day05-variables/
+│   ├── day06-functions-count/
+│   ├── day07-local-values-data-sources/
+│   ├── day08-debugging-code-cleanup/
+│   ├── day09-meta-arguments-dependencies-for_each/
+│   ├── day10-validation-pre_post_condition-check_moved_block/
+│   ├── day11-provisioners/
+│   ├── day12-modules/
+│   │   ├── modules/
+│   │   └── teams/
+│   ├── day13-workspaces-git-remote-state/
+│   │   ├── network-team/
+│   │   └── security-team/
+│   ├── day14-import-removed-block-sensitive-data-vault/
+│   └── day15-HCP-terraform/
+├── kplabs-terraform-challenges/
+│   ├── challenge-1/
+│   ├── challenge-2/
+│   ├── challenge-3/
+│   └── challenge-4/
+└── projects/
+    └── project-1/
 ```
 
----
-
-## Learning Progress
-
-| Day | Topic | Status |
-|------|-----------------------------|-----------|
-| 01 | Installation & Infrastructure as Code | Completed |
-| 02 | First EC2 Instance | Completed |
-| 03 | Terraform State | Completed |
-| 04 | Security Groups | Completed |
-| 05 | Variables | Completed |
-| 06 | Functions & Count | In Progress |
-| 07 | Data Sources | Planned |
-| 08 | Dynamic Blocks | Planned |
-| 09 | Meta Arguments | Planned |
-| 10 | Modules | Planned |
-| 11 | Advanced Modules | Planned |
-| 12 | Remote State | Planned |
-| 13 | Import & Sensitive Values | Planned |
-| 14 | Final Lab | Planned |
-
----
+Each day is kept in its own directory so you can focus on one configuration at a time. Some directories contain a lab README, some contain study notes, and some contain both. Day 12 includes local modules and team examples; Day 13 includes separate network and security team configurations.
 
 ## Prerequisites
 
-Before running any lab, install the following tools:
+Install the tools needed for the lab you plan to run:
 
-- Terraform
-- AWS CLI
-- Git
-- Visual Studio Code
-- AWS Account
-- GitHub Account
+- [Terraform CLI](https://developer.hashicorp.com/terraform/install)
+- [Git](https://git-scm.com/downloads)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and an AWS account for AWS labs
+- An AWS identity with only the permissions needed for the selected lab; configure credentials outside the Terraform files
+- A GitHub account/token, Vault environment, or HCP Terraform account only for labs that use those services
 
----
+You can read the notes without cloud credentials. Cloud provider credentials and account setup are required only when you run a lab that calls that provider.
 
-## Terraform Workflow
+## Run a lab
 
-Initialize the working directory
+Run Terraform from the specific directory containing the configuration you want to work with. For example:
 
 ```bash
+cd labs/day02-first-ec2
 terraform init
-```
-
-Format Terraform files
-
-```bash
-terraform fmt
-```
-
-Validate configuration
-
-```bash
+terraform fmt -check
 terraform validate
-```
-
-Review execution plan
-
-```bash
 terraform plan
 ```
 
-Create infrastructure
+Review the plan before applying changes:
 
 ```bash
 terraform apply
 ```
 
-Destroy infrastructure
+When you have finished and confirmed the resources are safe to remove:
 
 ```bash
+terraform plan -destroy
 terraform destroy
 ```
 
----
+Commands that create or destroy infrastructure can incur charges or affect real resources. Check the active cloud account, region, workspace, and plan before applying or destroying. Do not run Terraform from the repository root unless that is the configuration you intend to operate on.
 
-## Repository Notes
+## Safety and working practices
 
-This repository is intended for learning and experimentation.
+- Treat every plan as a proposed change to a real account. Check resource names, region, account, workspace, and cost before applying.
+- Use a non-root AWS identity and least-privilege permissions for AWS exercises.
+- Never put access keys, passwords, tokens, private keys, or other secrets in Terraform files or committed variable files. The repository tracks example `.tfvars` files; inspect them and replace or remove any sensitive values before sharing changes.
+- Terraform state and plan files can contain sensitive data. Keep them private and do not commit them.
+- Keep each `.terraform.lock.hcl` file under version control so provider selections are reproducible.
+- Run `terraform fmt`, `terraform validate`, and `terraform plan` and review the proposed changes before applying.
+- Prefer references between resources over hard-coded IDs where practical.
+- Use provisioners sparingly; prefer provider resources or purpose-built configuration tools when they fit the task.
+- Destroy temporary resources after practice, after checking that they are the intended resources to remove.
 
-Each lab is isolated in its own directory to simplify learning and keep Terraform state independent.
+The repository's `.gitignore` excludes Terraform working directories, state files, plan files, logs, and common private-key files. Ignore rules are a safeguard, not a substitute for checking what is staged before committing.
 
-Terraform variable files included in this repository contain only non-sensitive configuration values used for learning purposes.
+## Useful links
 
-No AWS credentials, access keys, personal access tokens, passwords, or other secrets are stored in this repository.
+- [Terraform documentation](https://developer.hashicorp.com/terraform/docs)
+- [Terraform CLI documentation](https://developer.hashicorp.com/terraform/cli)
+- [Terraform language documentation](https://developer.hashicorp.com/terraform/language)
+- [Terraform Registry](https://registry.terraform.io/)
+- [AWS provider documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [HashiCorp tutorials](https://developer.hashicorp.com/terraform/tutorials)
+- [HCP Terraform documentation](https://developer.hashicorp.com/terraform/cloud-docs)
 
-Terraform state files, provider cache, and temporary files are excluded from version control using `.gitignore`.
-
----
-
-## Best Practices
-
-- Write Terraform code manually instead of copying examples.
-- Keep one Terraform project per directory.
-- Always run `terraform fmt` before committing.
-- Validate configurations before applying changes.
-- Review the execution plan before creating resources.
-- Destroy unused resources to avoid unnecessary AWS charges.
-- Never commit credentials or secrets to Git.
-- Pin Terraform and Provider versions whenever possible.
-
----
-
-## References
-
-Terraform Documentation
-
-https://developer.hashicorp.com/terraform/docs
-
-Terraform CLI
-
-https://developer.hashicorp.com/terraform/cli
-
-Terraform Registry
-
-https://registry.terraform.io/
-
-AWS Provider Documentation
-
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-
-HashiCorp Learn
-
-https://developer.hashicorp.com/terraform/tutorials
-
----
-
-## Author
+## About
 
 **Kareem Rabie**
 
 AWS Cloud | DevOps | Cloud Security
 
-LinkedIn
-
-https://www.linkedin.com/in/kareem-rabie
-
-GitHub
-
-https://github.com/kareemrabiee
-
----
+- [LinkedIn](https://www.linkedin.com/in/kareem-rabie)
+- [GitHub](https://github.com/kareemrabiee)
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
